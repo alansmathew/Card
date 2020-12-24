@@ -17,7 +17,6 @@
 
             transition: 1s ease-out;
             transform-style: preserve-3d;
-            z-index: 1;
         }
         .card{
             position: absolute;
@@ -28,6 +27,8 @@
             width:482px;
             height:285px;
             border-radius: 20px;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
 
         }
         .card_foreground{
@@ -72,6 +73,7 @@
             margin-left:23px;
             font-family: num;
             font-size: 30px;
+            z-index: 3;
         }
         .exp{
             position: absolute;
@@ -123,12 +125,12 @@
             right: 10px;
         }
         #one{
-            transform: translateZ(50px) translateX(-50%) translateY(-50%);
-            z-index: 2
+            transform:  translateX(-50%) translateY(-50%);
+            /* z-index: 2 */
         }
         #two{
-            transform: translateZ(-50px) translateX(-50%) translateY(-50%) rotateY(180deg);
-            z-index: 0;
+            transform: translateX(-50%) translateY(-50%) rotateY(180deg);
+            /* z-index: 0; */
         }
         .box{
             position: absolute;
