@@ -23,7 +23,8 @@
             position: absolute;
             display: block;
             margin-top: 10px;
-            background-image: linear-gradient(to bottom right,#c7c7c7,#f2f2f2);
+            /* background-image: linear-gradient(to bottom right,#c7c7c7,#f2f2f2); */
+            background-image: linear-gradient(to bottom right,#dfdfdf,#a4a2a2);
             width:482px;
             height:285px;
             border-radius: 20px;
@@ -188,11 +189,7 @@
 
     <script>
         var card_state=false;
-        var space=0;
         var number='';
-        var exp
-        var nam
-        var cv
         function flip(stage){
             if(card_state==true && stage==true){
                 document.getElementById("bx").style.cssText="transform: rotateY(0deg);"
@@ -207,8 +204,6 @@
 
             if (elem =='numb'){
                 flip(true)
-                var val = Number(document.getElementById("numb").value.trim())
-                console.log(Math.floor(val)==val)
                 // console.log(Number.isInteger(Number(document.getElementById("numb").value.trim())))
                 
                 len=document.getElementById("numb").value.trim().length;
