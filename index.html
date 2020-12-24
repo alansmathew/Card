@@ -23,8 +23,6 @@
             position: absolute;
             display: block;
             margin-top: 10px;
-            /* padding:10px; */
-            /* background-color: rgba(199, 199, 199, 0.29); */
             background-image: linear-gradient(to bottom right,#c7c7c7,#f2f2f2);
             width:482px;
             height:285px;
@@ -131,9 +129,6 @@
             transform: translateZ(-50px) translateX(-50%) translateY(-50%) rotateY(180deg);
             z-index: 0;
         }
-        .box1:hover{
-            transform: rotateY(180deg);
-        }
         .box{
             position: absolute;
             padding:30px;
@@ -157,10 +152,18 @@
             width: 450px;
             margin:10px;
             height: 55px;
-            border-radius: 12px;
             border:none;
             background-color: #ecedf1;
-            /* box-shadow: -5px -5px 10px 1px #fafbffb5, 5px 5px 15px 1px  #a6abbd7e; */
+            border-radius: 12px;
+            /* border-bottom:solid black 1px ; */
+            box-shadow: -5px -5px 10px 1px #fafbff22, 5px 5px 15px 1px  #a6abbd2a;
+        }
+        .fields input:focus{
+            box-shadow: -5px -5px 10px 1px #fafbff53, 5px 5px 15px 1px  #a6abbd4d;
+        }
+        .fields input::placeholder{
+            font-size: 19px;
+            font-family:exp;
         }
         input:focus, button:focus{
             outline: none;
@@ -169,41 +172,129 @@
             font-size: 20px;
             cursor: pointer;
             padding-left: 20px;
-            width: 450px;
-            margin:10px;
+            width: 478px;
+            margin:25px 10px;
             height: 55px;
             border-radius: 12px;
             border:none;
             color:white;
             background-color: #3d5cc2;
-            box-shadow: -5px -5px 10px 1px #fafbffb5, 7px 7px 15px 1px  #5570c795;
+            box-shadow: -5px -5px 10px 1px #dfe0e4b5, 7px 7px 15px 1px  #5570c795;
         }
         .fields button:hover{
             box-shadow: -5px -5px 10px 1px #fafbffb5, 5px 5px 15px 1px  #5570c795;
         }
     </style>
+
+    <script>
+        var card_state=false;
+        var space=0;
+        var number='';
+        var exp
+        var nam
+        var cv
+        function flip(stage){
+            if(card_state==true && stage==true){
+                document.getElementById("bx").style.cssText="transform: rotateY(0deg);"
+                card_state=false;
+            }
+            else if(card_state==false && stage==false){
+                document.getElementById("bx").style.cssText="transform:rotateY(180deg);"
+                card_state=true;
+            }
+        }
+        function mark(elem){
+
+            if (elem =='numb'){
+                flip(true)
+                var val = Number(document.getElementById("numb").value.trim())
+                console.log(Math.floor(val)==val)
+                // console.log(Number.isInteger(Number(document.getElementById("numb").value.trim())))
+                
+                len=document.getElementById("numb").value.trim().length;
+                if(len < 20){
+                    if (len==4 || len==9 || len==14)
+                    {
+                        document.getElementById("numb").value+=" "
+                    }
+                    document.getElementsByClassName("number")[0].innerHTML=document.getElementById("numb").value;
+                    number=document.getElementById("numb").value;
+                    if(len==4 && number.charAt(0)==5){
+                        document.getElementById("image").setAttribute("src","Assets/images/master.png")
+                    }
+                    else if(len==4 && number.charAt(0)==4){
+                        document.getElementById("image").setAttribute("src","Assets/images/visa.png")
+                    }
+                    else if(len==4 && number.charAt(0)==6){
+                        document.getElementById("image").setAttribute("src","Assets/images/rupay.png")
+                    }
+                }
+                else{
+                    document.getElementById("numb").value=number
+                }
+            }
+
+            if(elem=="expn"){
+                flip(true)
+                len=document.getElementById("expn").value.trim().length;
+                if(len<6){
+                    if(len==2){
+                        document.getElementById("expn").value+="/"
+                    }
+                    document.getElementsByClassName('exp')[0].innerHTML=document.getElementById(elem).value
+                }
+                else{
+                    document.getElementById(elem).value=document.getElementsByClassName('exp')[0].innerHTML
+                }
+            }
+
+            if(elem=="nam"){
+                flip(true)
+                len=document.getElementById(elem).value.trim().length;
+                if(len<24){
+                    document.getElementsByClassName('name')[0].innerHTML=document.getElementById(elem).value
+                }
+                else{
+                    document.getElementById(elem).value=document.getElementsByClassName('name')[0].innerHTML
+                }
+                
+            }
+            if(elem=="cv"){
+                flip(false)
+                len=document.getElementById(elem).value.trim().length;
+                if(len < 4){
+                    document.getElementsByClassName('cvv')[0].innerHTML=document.getElementById(elem).value
+                }
+                else{
+                    document.getElementById(elem).value=document.getElementsByClassName('cvv')[0].innerHTML
+                }
+            }
+
+        }
+    </script>
+
 </head>
 <body>
     <div class="box">
-        <div class="box1">
+        <div class="box1" id="bx">
             <div class="card" id="one">
                 <div class="card_foreground"></div>
                 <div class="chip"><img src="Assets/images/chip.png" alt=""></div>
                 <div class="number">5559 4265 2221 2371</div>
-                <div class="exp">Jan/22</div>
-                <div class="name">Alan S Mathew </div>
-                <div class="type"> <img src="Assets/images/master.png" alt=""></div>
+                <div class="exp">01/22</div>
+                <div class="name">Cardholder Name </div>
+                <div class="type"> <img id="image" src="Assets/images/master.png" alt=""></div>
             </div>
             <div class="card" id="two">
                 <div class="strip"></div>
-                <div class="sigstrip"><p class="cvv">190</p></div>
+                <div class="sigstrip"><p class="cvv">CVV</p></div>
             </div>
         </div>
         <div class="fields">
-            <input type="text" placeholder="Card Number">
-            <input type="text" placeholder="Expiry Date">
-            <input type="text" placeholder="Cardholder Name">
-            <input type="text" placeholder="CVV">
+            <input type="text" id="numb" placeholder="Card Number" onclick="flip(true)" onkeyup="mark('numb')">
+            <input type="text" id="expn" placeholder="Expiry Date" onclick="flip(true)" onkeyup="mark('expn')">
+            <input type="text" id="nam" placeholder="Cardholder Name" onclick="flip(true)" onkeyup="mark('nam')">
+            <input type="text" id="cv" placeholder="CVV" onclick="flip(false)" onkeyup="mark('cv')">
             <button> Add Card</button>
         </div>
     </div>
