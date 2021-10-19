@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clock
+  </title>
+<style>
+body{
+  background: url("back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.dat{
+  margin-top: 20%;
+}
+
+.box{
+    background-color: rgba(202, 194, 194, 0.25);
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+#crtime{
+color:white;
+font-size:100px;
+font-family:Impact;
+margin-bottom:0px;
+text-decoration: underline;
+-webkit-text-decoration-color: rgba(202, 194, 194, 0.30); /* Safari */
+text-decoration-color: rgba(202, 194, 194, 0.30);
+}
+
+#crdate{
+font-size:30px;
+font-family:Comic Sans MS;
+margin-top:0px;
+color: rgba(255, 255, 255, 0.74);
+}
+
+</style>
+</head>
+<body onload="time()">
+<div class="dat">
+
+<center><p id="crtime"></p></center>
+<center><div class="box"><p id="crdate"></p></div></center>
+
+</div>
+<script>
+
+function time() {
+    var d = new Date();
+    var n = d.toLocaleTimeString();
+    document.getElementById("crtime").innerHTML = n;
+	  var today = new Date();
+	  var dd = today.getDate();
+	  var mm = today.getMonth()+1; //January is 0!
+	  var yyyy = today.getFullYear();
+	     if(dd<10) {
+         dd = '0'+dd
+	      }
+	     if(mm<10) {
+         mm = '0'+mm
+	      }
+   today = dd + '/' + mm + '/' + yyyy;
+	 document.getElementById("crdate").innerHTML = today;
+   setTimeout(time, 1000);
+}
+
+</script>
+</body>
+</html>
