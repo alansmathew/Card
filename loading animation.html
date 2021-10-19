@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            background-color: rgb(0, 0, 0);
+        }
+        .loading{
+            width:100%;
+            height:100%;
+        }
+        .objects{
+            position: absolute;
+            width:1000px;
+            height:420px;
+            background-color: rgb(0, 0, 0);
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .left_whitebar_marginright{
+            background-color: black;
+            position: relative;
+            float:left;
+            width:45px;
+            height:100%;
+            
+        }
+        .left_whitebar{
+            background-color: white;
+            position: relative;
+            width:17px;
+            height:100%;
+        }
+        .code{
+            position: relative;
+            /* width: 200px; */
+            height:23px;
+            margin-bottom: 25px;
+            float: left;
+            margin-left: 25px;
+        }
+        .stop{
+            position: relative;
+            width: 19px;
+            height:23px;
+            float: left;
+            margin-left: 25px;
+            margin-bottom: 25px;
+            background-color: white
+        }
+        .fore{
+            position:absolute;
+            width:100%;
+            height:100%;
+            left:0%;
+            /* background-image: radial-gradient(circle, rgba(255, 0, 0, 0.091), rgba(255, 255, 0, 0)); */
+            background-color:rgba(0, 0, 0, 0.509);
+            animation: infinite example 1.8s ease-in-out;
+        }
+        @keyframes example {
+            0%   {background-color:rgba(0, 0, 0, 0.509);}
+            50%  {background-color:rgba(0, 0, 0, 0);}
+            100%   {background-color:rgba(0, 0, 0, 0.509);}
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="objects">
+            <div class="left_whitebar_marginright">
+                <div class="left_whitebar"></div>
+            </div>
+            <div class="code" style="width:150px;background-color: rgb(249,72,133);"></div>
+            <div class="code" style="width:300px;background-color: rgb(174,140,250);"></div>
+            <div class="code" style="width:200px;background-color: white;"></div>
+            <div class="stop" style="margin-bottom: 35px;"></div>
+            <!-- 2nd line -->
+            <div class="code" style="margin-left:100px;width:150px;background-color: rgb(249,72,133);"></div>
+            <div class="code" style="width:450px;background-color: white;"></div>
+            <div class="code" style="width:200px;background-color: rgb(122,223,241);"></div>
+            <!-- 3rd  -->
+            <div class="code" style="margin-left:100px;width:150px;background-color: rgb(249,72,133);"></div>
+            <div class="code" style="width:550px;background-color: rgb(92,227,47);"></div>
+            <div class="stop" ></div><br>
+            <!-- 4th -->
+            <div class="code" style="margin-left:275px;width:130px;background-color: rgb(249,72,133);"></div>
+            <div class="code" style="width:160px;background-color: white;"></div>
+            <div class="code" style="width:200px;background-color: rgb(122,223,241);"></div>
+            <!-- 5th -->
+            <div class="code" style="margin-left:275px;width:450px;background-color: rgb(174,140,250);"></div>
+            <div class="code" style="width:100px;background-color: rgb(0, 0, 0);"></div>
+            <!-- 6th -->
+            <div class="stop" style="margin-left:100px;"></div>
+            <div class="code" style="margin-left:275px;width:450px;background-color: rgb(0, 0, 0);"></div>
+            <!-- 7th -->
+            <div class="code" style="margin-left:100px;width:120px;background-color: rgb(249,72,133);"></div>
+            <div class="code" style="width:250px;background-color: rgb(122,223,241);"></div>
+            <div class="code" style="width:350px;background-color: rgb(0, 0, 0);"></div>
+            <!-- 8th -->
+            <div class="code" style="margin-left:100px;width:120px;background-color: rgb(249,72,133);"></div>
+            <div class="code" style="width:100px;background-color: rgb(92,227,47);"></div>
+            <div class="code" style="width:560px;background-color: rgb(0, 0, 0);"></div>
+            <!-- 9th -->
+            <div class="stop" ></div>
+        </div>
+    </div>
+    <div class="fore"></div>
+</body>
+</html>
